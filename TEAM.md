@@ -39,16 +39,23 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Sao chép mục dưới đây cho từng thành viên.
 
-## MSSV_HoTen
+## 2A202603903 - Nguyễn Văn Anh Trung
 
 ### Phần việc phụ trách
 
--
+- Hoàn thành shape A (Checkpoint 2 và 3)
 
 ### Đóng góp cụ thể
 
--
+Hoàn thành shape A (Checkpoint 2 và Checkpoint 3), làm trên nhánh `workflow`.
+Kết quả:
+- `python -m lab8.smoke` → `lab8.smoke pass`
+- `python -m pytest -q` (cổng host) → 54 passed, không có `failed`
+- `python -m pytest -q -m student -o addopts= -k workflow` → **62 passed**
+- `python -m pytest -q -m student -o addopts= -k "workflow and (t11 or t12)"` → 2 passed (CP3: gọi lại và crash rồi resume)
+- `python -m pytest -q -m student -o addopts= -k "workflow and (C-013 or C-014)"` → 10 passed 
+
 
 ### Bằng chứng
+- Commit: `f523678`, `fe4de1d`, `3db0e23` trên nhánh `workflow`.
 
--
