@@ -133,5 +133,5 @@ def run_claim(
     # Step 8 (optional): a MockLLM reply draft could go here; it must not touch money.
     return done("resolved", proposal_amount=proposal_amount)
     
-    # CP3 (student): truyền crash_at vào durability.issue_refund, không bắt InjectedCrash
+    
     
