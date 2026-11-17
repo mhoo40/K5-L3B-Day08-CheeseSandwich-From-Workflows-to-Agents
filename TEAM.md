@@ -11,10 +11,10 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-| 1 | Nguyễn Long Vũ | 2A202603842 | 26ai.vunl@vinuni.edu.vn | mhoo40 |         |
-| 2 | Nguyễn Huy Tấn | 2A202603925 | 26ai.tannh@vinuni.edu.vn | Nguyễn Huy Tấn |         |
-| 3 | Nguyễn Văn Anh Trung | 2A202603903 |       | Trungocsdiogee-eee8-k67-hust |  |
-| 4 | Võ Thanh Huy | 2A202603879 | 26ai.huyvt2@vinuni.edu.vn | VThanh-Huy |         |
+| 1 | Nguyễn Long Vũ | 2A202603842 | 26ai.vunl@vinuni.edu.vn | mhoo40 | giữ cổng host (`pytest -q`) luôn xanh, đọc contract, viết bổ sung bộ unit test bẫy các ca ẩn (`src/tests/test_hidden_guards.py`), chạy `crash_test` 20/20, rà soát rò rỉ `CANARY_SECRET_*`/PII trong toàn bộ file trace và tổng hợp báo cáo |
+| 2 | Nguyễn Huy Tấn | 2A202603925 | 26ai.tannh@vinuni.edu.vn | Nguyễn Huy Tấn | Thiết kế luồng điều phối giữa Orchestrator và Investigator (read-only), kiểm soát gói tin `handoff.v1` qua allowlist |
+| 3 | Nguyễn Văn Anh Trung | 2A202603903 |       | Trungocsdiogee-eee8-k67-hust | cài đặt `workflow.py` đầu tiên làm chuẩn đối chiếu tốc độ và chi phí, sau đó chạy benchmark tổng hợp |
+| 4 | Võ Thanh Huy | 2A202603879 | 26ai.huyvt2@vinuni.edu.vn | VThanh-Huy | Xây dựng vòng lặp ReAct tối đa 8 bước với tập tool chỉ đọc, tách biệt hoàn toàn bước gọi `durability.issue_refund` ra khỏi vòng lặp của MockLLM |
 
 Gợi ý chia vai:
 
@@ -27,7 +27,10 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| | | | |
+| Nguyễn Long Vũ | Testing | `c9c2b4f` - benchmark.json, crash.json, test_hidden_gaurds | test_hidden_gaurds |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
 
 ## Cá nhân
 
@@ -54,3 +57,24 @@ Sao chép mục dưới đây cho từng thành viên.
 ### Bằng chứng
 
 -
+
+## 2A202603842_NguyenLongVu
+
+### Phần việc phụ trách
+
+- Giữ cổng host (`pytest -q`) luôn xanh, đọc contract, bussiness_rules. 
+- Viết bổ sung bộ unit test bẫy các ca ẩn (`src/tests/test_hidden_guards.py`).
+- Chạy `crash_test` 20/20, rà soát rò rỉ `CANARY_SECRET_*`/PII trong toàn bộ file trace và tổng hợp báo cáo.
+
+### Đóng góp cụ thể
+
+- **Kiểm soát chất lượng cổng host & nghiệp vụ**: Rà soát toàn bộ contract và business_rules để đảm bảo logic xử lý trạng thái (resolved, denied, needs_info, escalated) đồng nhất trên cả 3 kiến trúc (workflow, single, orchestrator), duy trì bộ test nền pytest -q luôn đạt trạng thái xanh trước mọi lần merge.
+
+- **Mở rộng độ phủ kiểm thử biên**: Thiết kế và triển khai bộ unit test src/tests/test_hidden_guards.py nhằm bắt các tình huống ẩn và ca biên (dữ liệu thiếu trường, sai định dạng, xung đột trạng thái, cô lập phiên SQLite giữa các lần chạy).
+
+- **Kiểm thử chịu tải & rà soát bảo mật/PII**: Thực thi crash_test (đạt *20/20*) và chạy đánh giá diện rộng hidden_selfcheck trên 600 lượt chạy (`40 claims × 5 seeds × 3 shapes`); quét toàn bộ file trace/log đầu ra để xác nhận không phát sinh lỗi thực thi (error_trials = 0) và không rò rỉ dữ liệu nhạy cảm CANARY_SECRET_* hoặc PII (leak_suspects = 0), sau đó tổng hợp báo cáo đánh giá chi tiết cho nhóm.
+
+### Bằng chứng
+
+- `src/tests/test_hidden_guards.py`
+- `src\reports\benchmark.json`, `src\reports\crash.json`
