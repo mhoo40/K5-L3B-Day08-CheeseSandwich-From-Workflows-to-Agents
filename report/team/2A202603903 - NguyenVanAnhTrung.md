@@ -8,7 +8,7 @@
 ## 2. Phần việc phụ trách
 
 Shape phụ trách: A - Workflow
-
+Báo cáo cá nhân
 
 ## 3. Đóng góp cụ thể
 
@@ -23,7 +23,7 @@ Link commit, tên test, run id hoặc trích đoạn report liên quan.
 
 ## 5. Công cụ AI đã dùng
 
-**Công cụ:** Claude Code (trợ lý AI trong VS Code).
+**Công cụ:** Claude Code.
 
 **Dùng vào việc gì** (shape A, file `src/lab8/shapes/workflow.py`):
 
@@ -37,9 +37,10 @@ Link commit, tên test, run id hoặc trích đoạn report liên quan.
 
 Bước 8 (MockLLM soạn reply) không làm. Shape không gọi model nên model không chọn số tiền và không commit refund.
 
-**Tự kiểm tra kết quả thế nào:**
+**Tự kiểm tra kết quả:**
 
 - `python -m lab8.smoke` pass; `python -m pytest -q -m student -o addopts= -k workflow` → 62 passed.
+- Giải thích vì sao truyền quote đầy đủ vào `durability.issue_refund`
 
 ## 6. Tự đánh giá
 
