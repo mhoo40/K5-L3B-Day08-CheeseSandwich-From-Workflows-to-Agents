@@ -2,17 +2,19 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A
-- Repo nhóm: `K5-L3A-DAY08-TenNhom-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
+- Tên nhóm: CheeseSandwich
+- Lớp: L3B
+- Repo nhóm: `K5-L3B-Day08-CheeseSandwich-From-Workflows-to-Agents` (xem [SUBMISSION.md](SUBMISSION.md))
 - URL repo, nhánh nộp, commit chốt:
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
-|   2 |        |      |       |        |         |
+| 1 | Nguyễn Long Vũ | 2A202603842 | 26ai.vunl@vinuni.edu.vn | mhoo40 |         |
+| 2 | Nguyễn Huy Tấn | 2A202603925 | 26ai.tannh@vinuni.edu.vn | Nguyễn Huy Tấn |         |
+| 3 | Nguyễn Văn Anh Trung | 2A202603903 |       | Trungocsdiogee-eee8-k67-hust |  |
+| 4 | Võ Thanh Huy | 2A202603879 | 26ai.huyvt2@vinuni.edu.vn | VThanh-Huy |         |
 
 Gợi ý chia vai:
 
